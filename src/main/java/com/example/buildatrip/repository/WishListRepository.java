@@ -1,0 +1,9 @@
+package com.example.buildatrip.repository;
+
+import com.example.buildatrip.entity.WishList;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+
+public interface WishListRepository extends JpaRepository<WishList, Long>, QuerydslPredicateExecutor<WishList> {
+
+}
