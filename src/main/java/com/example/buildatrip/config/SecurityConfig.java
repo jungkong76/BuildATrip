@@ -23,20 +23,21 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsManager(){ // 메모리에 하나의 인증 정보를 입력해 놓는 방식. 주로 테스트용으로 사용
-        UserDetails user = User.builder()
-                .username("user1")
-                .password(passwordEncoder().encode("1111"))
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(user);
-    }
+//    @Bean
+//    public InMemoryUserDetailsManager userDetailsManager(){ // 메모리에 하나의 인증 정보를 입력해 놓는 방식. 주로 테스트용으로 사용
+//        UserDetails user = User.builder()
+//                .username("user1")
+//                .password(passwordEncoder().encode("1111"))
+//                .roles("USER")
+//                .build();
+//        return new InMemoryUserDetailsManager(user);
+//    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests()
             .antMatchers("/sample/all").permitAll()
+            .antMatchers("/member/join/joinForm").permitAll()
             .antMatchers("/sample/member").hasRole("USER");
         http.formLogin();
         http.csrf().disable();

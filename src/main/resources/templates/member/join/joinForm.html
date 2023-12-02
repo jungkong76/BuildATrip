@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>빌더트립 - 회원 가입</title>
+    <link rel="stylesheet" href="/css/member/join/joinForm.css">
+</head>
+<body>
+<h3>회원가입</h3>
+<form>
+<p>이메일</p>
+<input type="text" id = "email1">@<input type="text" id = "email2">
+<select id = "selectAdd">
+    <option value = "999">----직접 입력----</option>
+    <option value="naver.com">naver.com</option>
+    <option value="google.com">gmail.com</option>
+    <option value="hanmail.net">hanmail.net</option>
+    <option value="nate.com">nate.com</option>
+    <option value="kakao.com">kakao.com</option>
+</select> <button onclick="send()">인증</button><br/>
+<div id="certification">
+    <input type="text" placeholder="인증번호를 입력하세요."><button id="check">확인</button>
+</div>
+<p>이름</p>
+<input type="text">
+<p>연령</p>
+<select>
+    <option value="999">----------선택----------</option>
+    <option value="10">10대</option>
+    <option value="20">20대</option>
+    <option value="30">30대</option>
+    <option value="40">40대</option>
+    <option value="50">50대</option>
+    <option value="60">60대</option>
+    <option value="70">70대</option>
+    <option value="80">80대</option>
+    <option value="0">밝히고 싶지 않아요.</option>
+</select>
+<p>성별</p>
+<select>
+    <option value="999">----------선택----------</option>
+    <option value="M">남성</option>
+    <option value="F">여성</option>
+    <option value="N">밝히고 싶지 않아요.</option>
+</select>
+    </form>
+*연령과 성별은 여행지 추천 서비스에 활용됩니다.*
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/member/join/joinForm.js"></script>
+    </html>

@@ -25,16 +25,14 @@ public class Member {
     private String mem_name;
     private int mem_age;
 
-    private int mem_gender;
+    private char mem_gender;
 
-    @Column(nullable = false, columnDefinition = "int default 0")
-    private int is_admin;
+    @Column(nullable = false,columnDefinition = "VARCHAR(255) DEFAULT 'USER'")
+    private String mem_role;
 
     @Column(nullable = false)
     private LocalDateTime created_at;
 
-    @Column(columnDefinition = "int default 0")
-    private int fromSocial;
-
-
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private boolean from_social;
 }

@@ -27,8 +27,8 @@ public class MemberTests {
                     .mem_pw(passwordEncoder.encode("1111"))
                     .mem_name("사용자" + i)
                     .mem_gender(0)
-                    .fromSocial(0)
-                    .is_admin(0)
+                    .from_social(false)
+                    .mem_role("USER")
                     .mem_age(22)
                     .created_at(LocalDateTime.now())
                     .build();
@@ -40,8 +40,8 @@ public class MemberTests {
                 .mem_pw(passwordEncoder.encode("1111"))
                 .mem_name("사용자" + 101)
                 .mem_gender(0)
-                .fromSocial(0)
-                .is_admin(1)
+                .from_social(false)
+                .mem_role("ADMIN")
                 .mem_age(26)
                 .created_at(LocalDateTime.now())
                 .build();
