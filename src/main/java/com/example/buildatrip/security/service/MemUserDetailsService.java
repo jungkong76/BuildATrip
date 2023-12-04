@@ -27,7 +27,7 @@ public class MemUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //log.info("MemUserDetailsService에서 loadUserByUsername한 결과 : " + username);
 
-        Optional<Member> result = memberRepository.findByMem_id(username, false);
+        Optional<Member> result = memberRepository.findByMemId(username, false);
 
         if(result.isEmpty()){
             throw new UsernameNotFoundException("check Email or Social");
@@ -36,10 +36,10 @@ public class MemUserDetailsService implements UserDetailsService {
         Member member = result.get();
         //log.info("-------------------"+ member);
 
-        MemberDto authMember = new MemberDto(member.getMem_id(), member.getMem_pw(), member.isFrom_social(),
-                                        Collections.singletonList(new SimpleGrantedAuthority("ROLE_"+member.getMem_role())));
+        MemberDto authMember = new MemberDto(member.getMemId(), member.getMemPw(), member.isFromSocial(),
+                                        Collections.singletonList(new SimpleGrantedAuthority("ROLE_"+member.getMemRole())));
 
-        authMember.setMem_name(member.getMem_name());
+        authMember.setMemName(member.getMemName());
         return authMember;
     }
 }

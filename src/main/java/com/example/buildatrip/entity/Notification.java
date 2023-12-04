@@ -17,17 +17,17 @@ public class Notification extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long n_no;
+    private Long nNo;
 
     @ManyToOne
-    @JoinColumn(name = "writer", referencedColumnName = "mem_no")
+    @JoinColumn(name = "writer", referencedColumnName = "memNo")
     private Member member;
 
     @Column(nullable = false)
-    private String n_title;
+    private String nTitle;
 
     @Column(nullable = false)
-    private String n_content;
+    private String nContent;
 
-    private int n_count;
+    private int nCount;
 }

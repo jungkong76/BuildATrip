@@ -15,13 +15,13 @@ public class Wishes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long w_no;
+    private Long wNo;
 
     @ManyToOne
     private WishList wishList;
 
-    private int p_code;
+    private int pCode;
 
     @Column(nullable = false)
-    private LocalDateTime reg_date;
+    private LocalDateTime regDate;
 }

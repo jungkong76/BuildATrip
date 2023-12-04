@@ -15,23 +15,23 @@ public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long i_no;
+    private Long iNo;
 
     @ManyToOne
     private Comment comment;
 
     @Column(nullable = false)
-    private String og_name;
+    private String ogName;
 
     @Column(nullable = false, length = 500)
-    private String file_name;
+    private String fileName;
 
     @Column(nullable = false, length = 500)
-    private String file_path;
+    private String filePath;
 
-    private int file_size;
+    private int fileSize;
 
     @Column(nullable = false)
-    private LocalDateTime created_date;
+    private LocalDateTime createdDate;
 
 }

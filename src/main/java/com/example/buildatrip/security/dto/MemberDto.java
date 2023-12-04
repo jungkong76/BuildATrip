@@ -14,14 +14,18 @@ import java.util.Collection;
 @Setter
 @ToString
 public class MemberDto extends User {
-    private String mem_id;
-    private String mem_name;
+    private String memId;
+    private String memName;
+    private String memPw;
+    private int memAge;
+    private String memGender;
     private boolean fromSocial;
 
     public MemberDto(String username, String password, boolean fromSocial, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
 
-        this.mem_id = username;
+        this.memId = username;
         this.fromSocial = fromSocial;
+        this.memPw = password;
     }
 }

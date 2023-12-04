@@ -15,19 +15,19 @@ public class Plans extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long p_no;
+    private Long pNo;
 
     @ManyToOne
     private PlanList planList;
 
-    private int p_code;
+    private int pCode;
 
     @Column(nullable = false, length = 500)
-    private String p_description;
+    private String pDescription;
 
     @Column(nullable = false)
-    private LocalDateTime start_date;
+    private LocalDateTime startDate;
 
     @Column(nullable = false)
-    private LocalDateTime end_date;
+    private LocalDateTime endDate;
 }

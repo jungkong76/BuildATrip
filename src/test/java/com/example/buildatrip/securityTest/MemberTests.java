@@ -23,27 +23,27 @@ public class MemberTests {
     public void insertDummyMembers() {
         IntStream.rangeClosed(1, 100).forEach(i -> {
             Member member = Member.builder()
-                    .mem_id("user" + i + "@naver.com")
-                    .mem_pw(passwordEncoder.encode("1111"))
-                    .mem_name("사용자" + i)
-                    .mem_gender(0)
-                    .from_social(false)
-                    .mem_role("USER")
-                    .mem_age(22)
-                    .created_at(LocalDateTime.now())
+                    .memId("user" + i + "@naver.com")
+                    .memPw(passwordEncoder.encode("1111"))
+                    .memName("사용자" + i)
+                    .memGender("M")
+                    .fromSocial(false)
+                    .memRole("USER")
+                    .memAge(22)
+                    .createdAt(LocalDateTime.now())
                     .build();
             memberRepository.save(member);
         });
 
         Member mem = Member.builder()
-                .mem_id("user" + 101 + "@naver.com")
-                .mem_pw(passwordEncoder.encode("1111"))
-                .mem_name("사용자" + 101)
-                .mem_gender(0)
-                .from_social(false)
-                .mem_role("ADMIN")
-                .mem_age(26)
-                .created_at(LocalDateTime.now())
+                .memId("dlwjdqls0706@naver.com")
+                .memPw(passwordEncoder.encode("1111"))
+                .memName("돈비니")
+                .memGender("F")
+                .fromSocial(false)
+                .memRole("ADMIN")
+                .memAge(26)
+                .createdAt(LocalDateTime.now())
                 .build();
         memberRepository.save(mem);
     }

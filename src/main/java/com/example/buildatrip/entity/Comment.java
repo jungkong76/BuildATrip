@@ -18,15 +18,15 @@ public class Comment extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long c_no;
+    private Long cNo;
 
     @ManyToOne
-    @JoinColumn(name = "user_no", referencedColumnName = "mem_no")
+    @JoinColumn(name = "userNo", referencedColumnName = "memNo")
     private Member user;
 
-    private float c_score;
+    private float cScore;
 
     @Column(length = 1000)
-    private String c_content;
+    private String cContent;
     private int pCode;
 }

@@ -42,25 +42,26 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation group: 'org.springframework', name: 'spring-context-support', version: '5.3.24'
-
-	implementation 'com.querydsl:querydsl-jpa:5.0.0'
-
-	annotationProcessor(
-			'javax.persistence:javax.persistence-api:2.2',
-			'javax.annotation:javax.annotation-api:',
-			'com.querydsl:querydsl-apt:5.0.0:jpa')
-
 	testCompileOnly 'org.projectlombok:lombok:1.18.20'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+
+//	implementation 'com.querydsl:querydsl-jpa:5.0.0'
+//
+//	annotationProcessor(
+//			'javax.persistence:javax.persistence-api:2.2',
+//			'javax.annotation:javax.annotation-api:',
+//			'com.querydsl:querydsl-apt:5.0.0:jpa')
+
 }
 
-sourceSets {
-	main{
-		java{
-			srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
-		}
-	}
-}
+//sourceSets {
+//	main{
+//		java{
+//			srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
+//		}
+//	}
+//}
 
 tasks.named('test') {
 	useJUnitPlatform()

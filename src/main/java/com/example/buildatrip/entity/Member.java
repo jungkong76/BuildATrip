@@ -15,24 +15,24 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mem_no;
+    private Long memNo;
 
     @Column(nullable = false)
-    private String mem_id;
+    private String memId;
     @Column(nullable = false)
-    private String mem_pw;
+    private String memPw;
     @Column(nullable = false)
-    private String mem_name;
-    private int mem_age;
+    private String memName;
+    private int memAge;
 
-    private char mem_gender;
+    private String memGender;
 
     @Column(nullable = false,columnDefinition = "VARCHAR(255) DEFAULT 'USER'")
-    private String mem_role;
+    private String memRole;
 
     @Column(nullable = false)
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @Column(nullable = false, columnDefinition = "boolean default false")
-    private boolean from_social;
+    private boolean fromSocial;
 }

@@ -15,28 +15,28 @@ public class Chats {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ch_no;
+    private Long chNo;
 
     @ManyToOne
-    @JoinColumn(name = "cr_no", referencedColumnName = "cr_no")
+    @JoinColumn(name = "crNo", referencedColumnName = "crNo")
     private ChatRoom chatRoom;
 
     @ManyToOne
-    @JoinColumn(name = "sender", referencedColumnName = "mem_no")
-    private Member send_mem;
+    @JoinColumn(name = "sender", referencedColumnName = "memNo")
+    private Member sendMem;
 
     @ManyToOne
-    @JoinColumn(name = "listener", referencedColumnName = "mem_no")
-    private Member listen_mem;
+    @JoinColumn(name = "listener", referencedColumnName = "memNo")
+    private Member listenMem;
 
     @Column(length = 1000, nullable = false)
-    private String ch_content;
+    private String chContent;
 
     @Column(nullable = false)
-    private LocalDateTime sent_date;
+    private LocalDateTime sentDate;
 
     @Column(columnDefinition = "int default 0")
-    private int is_read;
+    private int isRead;
 
-    private LocalDateTime read_date;
+    private LocalDateTime readDate;
 }

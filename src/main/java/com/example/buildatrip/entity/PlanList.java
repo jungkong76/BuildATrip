@@ -15,25 +15,24 @@ public class PlanList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pl_no;
+    private Long plNo;
 
     @ManyToOne
-    @JoinColumn(name="user_no", referencedColumnName = "mem_no")
+    @JoinColumn(name="user_no", referencedColumnName = "memNo")
     private Member member;
 
     @Column(nullable = false)
-    private String pl_name;
+    private String plName;
 
     @Column(nullable = false, length = 500)
-    private String pl_description;
+    private String plDescription;
 
     @Column(nullable = false)
-    private LocalDateTime reg_date;
+    private LocalDateTime regDate;
 
     @Column(nullable = false)
-    private LocalDateTime start_date;
+    private LocalDateTime startDate;
 
     @Column(nullable = false)
-    private LocalDateTime end_date;
-
+    private LocalDateTime endDate;
 }

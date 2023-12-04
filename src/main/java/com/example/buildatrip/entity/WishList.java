@@ -15,15 +15,15 @@ public class WishList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long wl_no;
+    private Long wlNo;
 
     @ManyToOne
-    @JoinColumn(name = "user_no", referencedColumnName = "mem_no")
+    @JoinColumn(name = "user_no", referencedColumnName = "memNo")
     private Member member;
 
     @Column(nullable = false, length = 100)
-    private String wl_name;
+    private String wlName;
 
     @Column(nullable = false)
-    private LocalDateTime reg_date;
+    private LocalDateTime regDate;
 }

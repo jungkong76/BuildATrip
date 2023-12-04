@@ -11,22 +11,22 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = {"from_member", "to_member"})
+@ToString(exclude = {"fromMember", "toMember"})
 @Builder
 public class ChatRoom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cr_no;
+    private Long crNo;
 
     @ManyToOne
-    @JoinColumn(name = "from_no", referencedColumnName = "mem_no")
-    private Member from_member;
+    @JoinColumn(name = "fromNo", referencedColumnName = "memNo")
+    private Member fromMember;
 
     @ManyToOne
-    @JoinColumn(name = "to_no", referencedColumnName = "mem_no")
-    private Member to_member;
+    @JoinColumn(name = "toNo", referencedColumnName = "memNo")
+    private Member toMember;
 
     @Column(nullable = false)
-    private LocalDateTime reg_date;
+    private LocalDateTime regDate;
 }

@@ -1,3 +1,11 @@
 #certification{
     display: none;
 }
+
+.right{
+    color: green;
+}
+
+.wrong{
+    color : red;
+}
