@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>빌더트립 - 메인</title>
+</head>
+<body>
+<div id="loginStatus"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function (){
+        let authName = "[[${userName}]]";
+        if (authName !== '') {
+            $('#loginStatus').html('<h3><a href="/member/myPage">' + authName +'님</a></h3>');
+        } else {$('#loginStatus').html('<h3><a href="/login">로그인</a></h3>');}
+    })
+</script>
+</html>
