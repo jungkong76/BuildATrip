@@ -30,7 +30,7 @@ public class MemUserDetailsService implements UserDetailsService {
         Optional<Member> result = memberRepository.findByMemId(username, false);
 
         if(result.isEmpty()){
-            throw new UsernameNotFoundException("check Email or Social");
+            throw new UsernameNotFoundException("check Email");
         }
 
         Member member = result.get();

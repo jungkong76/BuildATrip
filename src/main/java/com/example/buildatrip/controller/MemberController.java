@@ -75,6 +75,6 @@ public class MemberController {
                 .build();
         System.out.println(member);
         memberService.enrollMember(member);
-        return "/main";
+        return "/";
     }
 }
