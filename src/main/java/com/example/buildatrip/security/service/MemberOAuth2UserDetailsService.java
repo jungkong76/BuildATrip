@@ -34,7 +34,7 @@ public class MemberOAuth2UserDetailsService extends DefaultOAuth2UserService {
         System.out.println("------------어느 소셜? : " + client);
 
         OAuth2User oAuth2User = super.loadUser(userRequest);
-        System.out.println("-----------------------------------------------------"+oAuth2User);
+        System.out.println("-------------자료 형태: "+oAuth2User.getAttributes());
 
         String email = "";
         String name = "";
@@ -46,12 +46,12 @@ public class MemberOAuth2UserDetailsService extends DefaultOAuth2UserService {
             Map<String, Object> response = oAuth2User.getAttribute("response");
             email = (String) response.get("email");
             name = (String) response.get("name");
-        } else { // 카카오 로그인
-//            Map<String, Object> response = oAuth2User.getAttribute("kakao_account");
-//            email = (String) response.get("email");
-//            name = (String) response.get("profile.nickname");
-//            System.out.println(email);
-//            System.out.println(name);
+        } else if(client.equals("Kakao")){ // 카카오 로그인
+            Map<String, Object> attributes = oAuth2User.getAttributes();
+            Map<String, Object> kakaoAccount = (Map<String, Object>) attributes.get("kakao_account");
+            email = (String) kakaoAccount.get("email");
+            Map<String, Object> profile = (Map<String, Object>) kakaoAccount.get("profile");
+            name = (String) profile.get("nickname");
         }
 
         Member authMem = saveSocialMember(email, name);
@@ -73,9 +73,15 @@ public class MemberOAuth2UserDetailsService extends DefaultOAuth2UserService {
         if(result.isPresent()){
             return result.get();
         } else {
-            if(name.isEmpty()){
+            if(name == null){
                 name = email;
             }
+
+            //이미 있는 닉네임이면 name(n+1)
+            if(memberRepository.countByMemName(name) > 0){
+                name += "("+ (memberRepository.countByMemName(name) + 1) +")";
+            }
+
             Member member = Member.builder()
                     .memId(email)
                     .memName(name)

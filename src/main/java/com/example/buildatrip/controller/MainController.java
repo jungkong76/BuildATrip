@@ -1,25 +1,25 @@
 package com.example.buildatrip.controller;
 
 import com.example.buildatrip.security.dto.MemberDto;
-import com.example.buildatrip.security.service.MemUserDetailsService;
+import com.example.buildatrip.service.MemberService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@PropertySource("classpath:application-oauth.properties")
+@RequiredArgsConstructor
 public class MainController {
+    @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
+    private String client_id;
 
-    private final MemUserDetailsService userDetailsService;
-
-    public MainController(MemUserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
+    private final MemberService memberService;
 
 
     @GetMapping("/")
@@ -30,14 +30,12 @@ public class MainController {
             MemberDto user = (MemberDto) authentication.getPrincipal();
             userName = user.getMemName();
             System.out.println(userName);
-        } else {
-            System.out.println("비로그인 상태");
         }
         model.addAttribute("userName", userName);
         return "index.html";
     }
 
-//    @ResponseBody
+//    @ResponseBody  //oauth 인증중 ajax 실행되면 세션이 채워지지 않은 상태에서 userDetails를 불러오기 때문에 삭제했음.
 //    @GetMapping("/getUserDetails")
 //    public UserDetails getAuthMem(String userName){
 //        System.out.println("-----------------------------user: "+ userName);

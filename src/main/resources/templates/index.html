@@ -12,7 +12,7 @@
     $(document).ready(function (){
         let authName = "[[${userName}]]";
         if (authName !== '') {
-            $('#loginStatus').html('<h3><a href="/member/myPage">' + authName +'님</a></h3>');
+            $('#loginStatus').html('<h3><a href="/member/myPage">' + authName +'님</a>&nbsp<a href="/logout">로그아웃</a></h3>');
         } else {$('#loginStatus').html('<h3><a href="/login">로그인</a></h3>');}
     })
 </script>
